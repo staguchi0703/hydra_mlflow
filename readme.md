@@ -10,6 +10,8 @@
     * ここでmodelがconf内のmodelディレクトリ
     * その中のlighbgmとnnのyamlを見に行っている
     * model=以下を,で繋ぐときに**半角スペースを入れない！**
+* グリッドサーチ
+    `python xxx.py -m param1=1,2,3 param2=1,2,3,4`これでparam1×param2のグリッドサーチができる
 
 ## Mlflow
 

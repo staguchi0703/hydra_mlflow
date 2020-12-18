@@ -1,0 +1,3 @@
+- model=elasticnet
+- model.alpha=0.5
+- model.l1_ratio=0.7

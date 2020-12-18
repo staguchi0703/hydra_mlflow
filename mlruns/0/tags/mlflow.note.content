@@ -1,0 +1,16 @@
+# HydraとMlflowの活用
+
+## Hydra
+* 実行時の引数の組み合わせ全通りでグリッドサーチできる
+* configfileの設定を辞書型で読み込んで使える
+
+## Mlflow
+* 実行結果の記録
+* 実行条件の記録
+* ローカルにUIサーバを立ち上げられる
+
+## sampleのモデル
+* elasticnet
+* parameters
+  * alpha
+  * l1_ratio
