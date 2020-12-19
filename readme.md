@@ -34,6 +34,7 @@
 
 ## Mlflow
 
+### ざっくり使い方
 * mlflowで管理するpythonファイルをつくる
 * 上記pythonファイルを実行する
 * mlrunsに結果が保存される
@@ -41,3 +42,10 @@
     * mlrunsのソースを指定する場合は、`--backend-store-uri ./src`と指定する
 * ホストの[ローカルホスト](http://localhost:5000)から接続する
 * HydraがCWDを変えてしまうので、メイン関数の頭でCWDをプロジェクトのルートに変更しないとMlflowへの結果の書き込みがバグる
+
+
+### 実験の管理
+
+* 実験を行う際に実験の名前をつけて分けられる
+  * UIで実験名をつけるとexperiment_idが固有のものが生成される
+  * コードで`with mlflow.run_start()`の引数に`experiment_id='num'`を与えると狙いの実験に追加される

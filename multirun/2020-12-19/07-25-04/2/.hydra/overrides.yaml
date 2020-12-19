@@ -1,0 +1,2 @@
+- model=elasticnet
+- model.alpha=0.98

@@ -20,6 +20,7 @@ logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
 
+
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
@@ -56,7 +57,11 @@ def main(cfg):
     alpha = cfg.model.alpha
     l1_ratio = cfg.model.l1_ratio
 
-    with mlflow.start_run():
+
+
+    with mlflow.start_run(experiment_id='1'):
+        mlflow.sklearn.autolog()
+
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 
@@ -69,11 +74,12 @@ def main(cfg):
         print("  MAE: %s" % mae)
         print("  R2: %s" % r2)
 
-        mlflow.log_param("alpha", alpha)
-        mlflow.log_param("l1_ratio", l1_ratio)
-        mlflow.log_metric("rmse", rmse)
-        mlflow.log_metric("r2", r2)
-        mlflow.log_metric("mae", mae)
+        # mlflow.log_param("alpha", alpha)
+        # mlflow.log_param("l1_ratio", l1_ratio)
+        # mlflow.log_metric("rmse", rmse)
+        # mlflow.log_metric("r2", r2)
+        # mlflow.log_metric("mae", mae)
+        # mlflow.log_artifact()
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
